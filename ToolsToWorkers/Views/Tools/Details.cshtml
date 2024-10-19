@@ -1,0 +1,31 @@
+﻿@model ToolsToWorkers.Models.Views.ToolsView
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<a typeof="btn btn-success" asp-controller="Tools" asp-action="Edit" asp-route-id="@Model.ID">Редактировать элемент</a>
+<br>
+<h1>Информация об инструменте @Model.ID</h1>
+<p1>Название: @Model.Name</p1>
+<br>
+<p1>Хранилище: @Model.Storage</p1>
+<br>
+<p1>Статус: @Model.Status</p1>
+<br>
+<br>
+<h2>Артикул:</h2>
+<p1>Код: @Model.Article</p1>
+<br>
+<p1>Описание:<br> @Model.Description</p1>
+<br>
+<p1>Вес: @Model.Weight</p1>
+<br>
+<br>
+<h2>Хранилище:</h2>
+<p1>Код: @Model.StorageID</p1>
+<br>
+<p1>Тип: @Model.Type</p1>
+<br>
+<p1>Статус: @Model.StorageStatus</p1>
+<br>

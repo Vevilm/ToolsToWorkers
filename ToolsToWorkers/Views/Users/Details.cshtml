@@ -1,0 +1,19 @@
+﻿@model ToolsToWorkers.Models.User
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<a typeof="btn btn-success" asp-controller="Users" asp-action="Edit" asp-route-id="@Model.ID">Редактировать элемент</a>
+<br>
+<h1>Информация о пользователе @Model.Login</h1>
+<p1>Фамилия: @Model.Surname</p1>
+<br>
+<p1>Имя: @Model.Name</p1>
+<br>
+<p1>Отчество: @Model.Patronymic</p1>
+<br>
+<p1>Роль в системе: @Model.Role</p1>
+<br>
+<p1>Идентификатор: @Model.ID</p1>
+<br>

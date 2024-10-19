@@ -1,0 +1,40 @@
+﻿@model ToolsToWorkers.Data.SearchData.UserSearchData
+@{
+}
+
+<form method="post" asp-action="Index">
+<a typeof="btn btn-success" asp-controller="Users" asp-action="Create">Создать новый элемент</a>
+    <h1>Пользователи</h1>
+    <input asp-for="Login" class="form-control" autocomplete="off" type ="search">
+    <span asp-validation-for="Login" class="text-danger"></span>
+    <span asp-validation-for="Login" class="text-danger"></span>
+    <button type="submit" class="btn btn-primary">Поиск</button>
+    <br>
+    <select asp-for="Role" class="form-control">
+        <option value="Все">Все</option>
+        <option value="Администратор">Администратор</option>
+        <option value="Кладовщик">Кладовщик</option>
+        <option value="Рабочий">Рабочий</option>
+    </select>
+    <span asp-validation-for="Role" class="text-danger"></span>
+    <br>
+    <select asp-for="Status" class="form-control">
+        <option value="Все">Все</option>
+        <option value="Работает">Работает</option>
+        <option value="Уволен">Уволен</option>
+    </select>
+    <span asp-validation-for="Status" class="text-danger"></span>
+    <br>
+    <p1>На данной странице расположен каталог пользователей. Выберите того, который вам необходим.</p1>
+    <br>
+    @foreach (var item in Model.Users)
+    {
+        <a typeof="btn btn-success" asp-controller="Users" asp-action="Details" asp-route-id="@item.ID">
+            @item.Surname
+            @item.Role
+            @item.Login
+            @item.Status
+        </a>
+        <br>
+    }
+</form>
