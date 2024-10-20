@@ -18,6 +18,7 @@
     <span asp-validation-for="Field" class="text-danger"></span>
     <br>
     <select asp-for="Status" class="form-control">
+        <option value="Все">Все</option>
         @for (int i = 0; i < Enum.GetNames(typeof(ToolStatus)).Length; i++)
         {
             <option value="@Enum.ToObject(typeof(ToolStatus), i)">@Enum.ToObject(typeof(ToolStatus), i)</option>

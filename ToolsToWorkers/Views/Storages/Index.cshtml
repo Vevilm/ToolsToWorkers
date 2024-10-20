@@ -1,0 +1,42 @@
+﻿@using ToolsToWorkers.Data.enums
+@model ToolsToWorkers.Data.SearchData.StorageSearchData
+@{
+}
+
+<form method="post" asp-action="Index">
+<a typeof="btn btn-success" asp-controller="Storages" asp-action="Create">Создать новый элемент</a>
+    <h1>Хранилища</h1>
+    <input asp-for="Name" class="form-control" autocomplete="off" type ="search">
+    <span asp-validation-for="Name" class="text-danger"></span>
+    <span asp-validation-for="Name" class="text-danger"></span>
+    <button type="submit" class="btn btn-primary">Поиск</button>
+    <br>
+    <select asp-for="Status" class="form-control">
+        <option value="Все">Все</option>
+        @for (int i = 0; i < Enum.GetNames(typeof(StorageStatus)).Length; i++)
+        {
+            <option value="@Enum.ToObject(typeof(StorageStatus), i)">@Enum.ToObject(typeof(StorageStatus), i)</option>
+        }
+    </select>
+    <span asp-validation-for="Status" class="text-danger"></span>
+    <br>
+    <select asp-for="Type" class="form-control">
+        <option value="Все">Все</option>
+        @for (int i = 0; i < Enum.GetNames(typeof(StorageType)).Length; i++)
+        {
+            <option value="@Enum.ToObject(typeof(StorageType), i)">@Enum.ToObject(typeof(StorageType), i)</option>
+        }
+    </select>
+    <span asp-validation-for="Status" class="text-danger"></span>
+    <br>
+    <p1>На данной странице расположен каталог хранилищ. Выберите то, которое вам необходим.</p1>
+    <br>
+    @foreach (var item in Model.Storages)
+    {
+        <a typeof="btn btn-success" asp-controller="Storages" asp-action="Details" asp-route-id="@item.ID">
+            @item.Name
+            @item.Status
+        </a>
+        <br>
+    }
+</form>

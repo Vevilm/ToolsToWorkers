@@ -141,3 +141,4 @@ C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\obj\Debug\net8.0\refint\Too
 C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\obj\Debug\net8.0\ToolsToWorkers.pdb
 C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\obj\Debug\net8.0\ToolsToWorkers.genruntimeconfig.cache
 C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\obj\Debug\net8.0\ref\ToolsToWorkers.dll
+C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\obj\Debug\net8.0\ToolsToWorkers.sourcelink.json

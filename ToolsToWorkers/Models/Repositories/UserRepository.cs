@@ -86,7 +86,7 @@ namespace ToolsToWorkers.Models.Repositories
         public bool LoginTaken(string login)
         {
             var user = _context.Users.FirstOrDefault(a => a.Login == login);
-            return user == null;
+            return user != null;
         }
     }
 }

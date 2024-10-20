@@ -1,4 +1,5 @@
-﻿@model ToolsToWorkers.Data.SearchData.UserSearchData
+﻿@using ToolsToWorkers.Data.enums
+@model ToolsToWorkers.Data.SearchData.UserSearchData
 @{
 }
 
@@ -12,14 +13,19 @@
     <br>
     <select asp-for="Role" class="form-control">
         <option value="Все">Все</option>
-        <option value="Администратор">Администратор</option>
-        <option value="Кладовщик">Кладовщик</option>
-        <option value="Рабочий">Рабочий</option>
+        @for (int i = 0; i < Enum.GetNames(typeof(UserRoles)).Length; i++)
+        {
+            <option value="@Enum.ToObject(typeof(UserRoles), i)">@Enum.ToObject(typeof(UserRoles), i)</option>
+        }
     </select>
     <span asp-validation-for="Role" class="text-danger"></span>
     <br>
     <select asp-for="Status" class="form-control">
         <option value="Все">Все</option>
+        @for (int i = 0; i < Enum.GetNames(typeof(UserStaus)).Length; i++)
+        {
+            <option value="@Enum.ToObject(typeof(UserStaus), i)">@Enum.ToObject(typeof(UserStaus), i)</option>
+        }
         <option value="Работает">Работает</option>
         <option value="Уволен">Уволен</option>
     </select>

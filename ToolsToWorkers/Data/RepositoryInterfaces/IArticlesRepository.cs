@@ -10,9 +10,11 @@ namespace ToolsToWorkers.Data.RepositoryInterfaces
 
         Task<Article> GetByIDAsync(string id);
 
-        Task<IEnumerable<Article>> SearchByName(string name);
+        Task<IEnumerable<Article>> SearchByName(string name, IQueryable<Article> articles);
 
-        Task<IEnumerable<Article>> SearchByID(string id);
+        Task<IEnumerable<Article>> SearchByID(string id, IQueryable<Article> articles);
+
+        Task<Article> GetByIDAsyncNoTracking(string id);
 
         bool Add(Article article);
 

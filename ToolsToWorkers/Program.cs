@@ -9,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IUsersRepository, UserRepository>();
 builder.Services.AddScoped<IToolRepository, ToolRepository>();
+builder.Services.AddScoped<IArticlesRepository, ArticleRepository>();
+builder.Services.AddScoped<IStorageRepository, StorageRepository>();
 
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
 {

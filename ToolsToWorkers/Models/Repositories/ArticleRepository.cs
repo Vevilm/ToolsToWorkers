@@ -1,47 +1,86 @@
-﻿using ToolsToWorkers.Data.RepositoryInterfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using ToolsToWorkers.Data;
+using ToolsToWorkers.Data.RepositoryInterfaces;
+using ToolsToWorkers.Models.Views;
 
 namespace ToolsToWorkers.Models.Repositories
 {
     public class ArticleRepository : IArticlesRepository
     {
+        private readonly ApplicationDBContext _context;
+
+        public ArticleRepository(ApplicationDBContext context)
+        {
+            _context = context;
+        }
         public bool Add(Article article)
         {
-            throw new NotImplementedException();
+            _context.Articles.Add(article);
+            return Save();
         }
 
-        public Task<IEnumerable<Article>> GetAll()
+        public async Task<IEnumerable<Article>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.Articles.ToListAsync();
         }
 
-        public Task<IQueryable<Article>> GetAllDBSet()
+        public async Task<IQueryable<Article>> GetAllDBSet()
         {
-            throw new NotImplementedException();
+            return _context.Articles;
         }
 
-        public Task<Article> GetByIDAsync(string id)
+        public async Task<Article> GetByIDAsync(string id)
         {
-            throw new NotImplementedException();
+            var article = await _context.Articles.FirstOrDefaultAsync(a => a.ID == id);
+            return article;
+        }
+
+        public async Task<Article> GetByIDAsyncNoTracking(string id)
+        {
+            var article = await _context.Articles.AsNoTracking().FirstOrDefaultAsync(a => a.ID == id);
+            return article;
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var result = _context.SaveChanges();
+            return result > 0;
         }
 
-        public Task<IEnumerable<Article>> SearchByID(string id)
+        public async Task<IEnumerable<Article>> SearchByID(string id, IQueryable<Article> articles)
         {
-            throw new NotImplementedException();
+            List<Article> result = new List<Article>();
+            if (id != null)
+            {
+                result = await (articles ?? _context.Articles.AsNoTracking()).Where(a => a.ID.Contains(id)).ToListAsync();
+            }
+            else
+            {
+                return await(articles ?? _context.Articles.AsNoTracking()).ToListAsync();
+            }
+            if (result == null) return await(articles ?? _context.Articles.AsNoTracking()).ToListAsync();
+            else return result;
         }
 
-        public Task<IEnumerable<Article>> SearchByName(string name)
+        public async Task<IEnumerable<Article>> SearchByName(string name, IQueryable<Article> articles)
         {
-            throw new NotImplementedException();
+            List<Article> result = new List<Article>();
+            if (name != null)
+            {
+                result = await (articles ?? _context.Articles.AsNoTracking()).Where(a => a.Name.Contains(name)).ToListAsync();
+            }
+            else
+            {
+                return await(articles ?? _context.Articles.AsNoTracking()).ToListAsync();
+            }
+            if (result == null) return await(articles ?? _context.Articles.AsNoTracking()).ToListAsync();
+            else return result;
         }
 
         public bool Update(Article article)
         {
-            throw new NotImplementedException();
+            _context.Update(article);
+            return Save();
         }
     }
 }

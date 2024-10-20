@@ -14,7 +14,7 @@ namespace ToolsToWorkers.Data
         public DbSet<Article> Articles { get; set; }
 
         public DbSet<ToolsView> toolsView { get; set; }
-        //public DbSet<ToolRequestsView> toolRequestsView { get; set; }
+        public DbSet<ToolRequestsView> toolRequestsView { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,11 +23,11 @@ namespace ToolsToWorkers.Data
                 pc.HasNoKey();
                 pc.ToView("ToolsView");
             });
-            //modelBuilder.Entity<ToolRequestsView>(pc =>
-            //{
-            //    pc.HasNoKey();
-            //    pc.ToView("ToolRequestsView");
-            //});
+            modelBuilder.Entity<ToolRequestsView>(pc =>
+            {
+                pc.HasNoKey();
+                pc.ToView("ToolRequestsView");
+            });
         }
 
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
