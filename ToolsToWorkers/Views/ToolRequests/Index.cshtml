@@ -1,0 +1,39 @@
+﻿@using ToolsToWorkers.Data.enums
+@model ToolsToWorkers.Data.SearchData.ToolRequestSearchData
+@{
+}
+
+<form method="post" asp-action="Index">
+    <a typeof="btn btn-success" asp-controller="ToolRequests" asp-action="Create">Создать новый элемент</a>
+    <h1>Запросы инструментов</h1>
+    <input asp-for="Value" class="form-control" autocomplete="off" type="search">
+    <span asp-validation-for="Value" class="text-danger"></span>
+    <span asp-validation-for="Value" class="text-danger"></span>
+    <button type="submit" class="btn btn-primary">Поиск</button>
+    <br>
+    <select asp-for="Field" class="form-control">
+        <option value="Логин">Логин</option>
+        <option value="Название">Название</option>
+    </select>
+    <br>
+    <select asp-for="Status" class="form-control">
+        <option value="Все">Все</option>
+        @for (int i = 0; i < Enum.GetNames(typeof(ToolRequestStatus)).Length; i++)
+        {
+            <option value="@Enum.ToObject(typeof(ToolRequestStatus), i)">@Enum.ToObject(typeof(ToolRequestStatus), i)</option>
+        }
+    </select>
+    <span asp-validation-for="Status" class="text-danger"></span>
+    <br>
+    <p1>На данной странице расположен каталог пользователей. Выберите того, который вам необходим.</p1>
+    <br>
+    @foreach (var item in Model.ToolRequests)
+    {
+        <a typeof="btn btn-success" asp-controller="ToolRequests" asp-action="Details" asp-route-id="@item.RequestID">
+            @item.UserLogin
+            @item.RequestStatus
+            @item.ToolName
+        </a>
+        <br>
+    }
+</form>

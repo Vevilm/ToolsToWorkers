@@ -1,0 +1,33 @@
+﻿@model ToolsToWorkers.Models.Views.ToolRequestsView
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<a typeof="btn btn-success" asp-controller="ToolRequests" asp-action="Edit" asp-route-id="@Model.RequestID">Редактировать элемент</a>
+<br>
+<h1>Информация о запросе №@Model.RequestID</h1>
+<br>
+<p1>Запрошен: @Model.Requested.ToString()</p1>
+<br>
+<p1>@("Возвращён: " + (Model.Returned < Model.Requested ? "-/-" : Model.Returned))</p1>
+<br>
+<p1>Статус: @Model.RequestStatus</p1>
+<br>
+<h2>Запросивший пользователь:</h2>
+<br>
+<p1>Логин пользователя: @Model.UserLogin</p1>
+<br>
+<p1>ФИО: @Model.UserSurname @Model.UserName @Model.UserPatronymic</p1>
+<br>
+<h2>Запрошенный инструмент:</h2>
+<br>
+<p1>Код: @Model.ToolID</p1>
+<br>
+<p1>Артикул: @Model.ToolArticle</p1>
+<br>
+<p1>Название: @Model.ToolName</p1>
+<br>
+<p1>Вес: @Model.ToolWeight</p1>
+<br>
+<p1>Описание: @Model.ToolDescription</p1>

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using ToolsDistribution.Data;
+using ToolsToWorkers.Data;
 using ToolsToWorkers.Data.RepositoryInterfaces;
 using ToolsToWorkers.Data.SearchData;
 using ToolsToWorkers.Models;
@@ -83,11 +85,14 @@ namespace ToolsToWorkers.Controllers
             return RedirectToAction("Index");
         }
 
+        int page = 1;
+
         public async Task<IActionResult> Index()
         {
-            IEnumerable<User> users = await repository.GetAll();
+            IEnumerable<User> users = await repository.GetSlice(1, 2, await repository.GetAllDBSet());
             UserSearchData searchData = new UserSearchData();
             searchData.Users = users;
+            searchData.pageInfo = new PageInfo { TotalItems = repository.GetAll().Result.Count() };
             return View(searchData);
         }
         [HttpPost]
@@ -95,9 +100,12 @@ namespace ToolsToWorkers.Controllers
         {
             var users = FilterByRole(await repository.GetAllDBSet(), searchData.Role);
             users = FilterByStatus(users, searchData.Status);
-            searchData.Users = await repository.SearchByLogin(searchData.Login, users);
+            var usersList = await repository.SearchByLogin(searchData.Login, users);
+            searchData.Users = await repository.GetSlice(searchData.pageInfo.PageNumber, searchData.pageInfo.PageSize, usersList);
+            // Сюда пагинацию
             return View(searchData);
         }
+
 
         private IQueryable<User> FilterByRole(IQueryable<User> users, string role)
         {

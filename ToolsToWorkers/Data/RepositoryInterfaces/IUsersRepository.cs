@@ -8,13 +8,15 @@ namespace ToolsToWorkers.Data.RepositoryInterfaces
     {
         Task<IEnumerable<User>> GetAll();
 
+        Task<IEnumerable<User>> GetSlice(int count, int elementsPerPage, IQueryable<User> users);
+
         Task<IQueryable<User>> GetAllDBSet();
 
         Task<User> GetByIDAsync(int id);
 
         Task<User> GetByIDAsyncNoTracking(int id);
         
-        Task<IEnumerable<User>> SearchByLogin(string login, IQueryable<User> users);
+        Task<IQueryable<User>> SearchByLogin(string login, IQueryable<User> users);
 
         IQueryable<User> FilterByStatus(string status, IQueryable<User> users);
 

@@ -11,6 +11,7 @@ builder.Services.AddScoped<IUsersRepository, UserRepository>();
 builder.Services.AddScoped<IToolRepository, ToolRepository>();
 builder.Services.AddScoped<IArticlesRepository, ArticleRepository>();
 builder.Services.AddScoped<IStorageRepository, StorageRepository>();
+builder.Services.AddScoped<IToolRequestRepository, ToolRequestRepository>();
 
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
 {

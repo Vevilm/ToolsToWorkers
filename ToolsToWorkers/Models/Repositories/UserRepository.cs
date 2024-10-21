@@ -28,18 +28,18 @@ namespace ToolsToWorkers.Models.Repositories
             return filtered;
         }
 
-        public async Task<IEnumerable<User>> SearchByLogin(string login, IQueryable<User> users)
+        public async Task<IQueryable<User>> SearchByLogin(string login, IQueryable<User> users)
         {
-            List<User> result = new List<User>();
+            IQueryable<User> result;
             if (login != null)
             {
-                result = await (users ?? _context.Users.AsNoTracking()).Where(a => a.Login.Contains(login)).ToListAsync();
+                result = (users ?? _context.Users.AsNoTracking()).Where(a => a.Login.Contains(login));
             }
             else
             {
-                 return await (users ?? _context.Users.AsNoTracking()).ToListAsync();
+                return users ?? _context.Users.AsNoTracking();
             }
-            if (result == null) return await (users ?? _context.Users.AsNoTracking()).ToListAsync();
+            if (result == null) return users ?? _context.Users.AsNoTracking();
             else return result;
         }
 
@@ -87,6 +87,11 @@ namespace ToolsToWorkers.Models.Repositories
         {
             var user = _context.Users.FirstOrDefault(a => a.Login == login);
             return user != null;
+        }
+
+        public async Task<IEnumerable<User>> GetSlice(int count, int elementsPerPage, IQueryable<User> users)
+        {
+            return await _context.Users.Skip((count-1)*elementsPerPage).Take(elementsPerPage).ToListAsync();
         }
     }
 }

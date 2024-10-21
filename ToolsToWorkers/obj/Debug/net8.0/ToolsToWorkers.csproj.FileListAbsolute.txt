@@ -142,3 +142,10 @@ C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\obj\Debug\net8.0\ToolsToWor
 C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\obj\Debug\net8.0\ToolsToWorkers.genruntimeconfig.cache
 C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\obj\Debug\net8.0\ref\ToolsToWorkers.dll
 C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\obj\Debug\net8.0\ToolsToWorkers.sourcelink.json
+C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\bin\Debug\net8.0\System.Web.Mvc.dll
+C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\bin\Debug\net8.0\System.Web.Razor.dll
+C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\bin\Debug\net8.0\System.Web.Helpers.dll
+C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\bin\Debug\net8.0\System.Web.WebPages.Deployment.dll
+C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\bin\Debug\net8.0\System.Web.WebPages.Razor.dll
+C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\bin\Debug\net8.0\System.Web.WebPages.dll
+C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\bin\Debug\net8.0\Microsoft.Web.Infrastructure.dll
