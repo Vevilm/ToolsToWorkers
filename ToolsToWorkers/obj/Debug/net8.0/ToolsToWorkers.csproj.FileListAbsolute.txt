@@ -149,3 +149,4 @@ C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\bin\Debug\net8.0\System.Web
 C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\bin\Debug\net8.0\System.Web.WebPages.Razor.dll
 C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\bin\Debug\net8.0\System.Web.WebPages.dll
 C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\bin\Debug\net8.0\Microsoft.Web.Infrastructure.dll
+C:\Users\alexe\Desktop\ToolsToWorkers\ToolsToWorkers\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

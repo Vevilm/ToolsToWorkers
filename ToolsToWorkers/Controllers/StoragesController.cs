@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ToolsToWorkers.Data.RepositoryInterfaces;
 using ToolsToWorkers.Data.SearchData;
 using ToolsToWorkers.Models;
 
 namespace ToolsToWorkers.Controllers
 {
+    [Authorize]
     public class StoragesController : Controller
     {
         private readonly IStorageRepository repository;

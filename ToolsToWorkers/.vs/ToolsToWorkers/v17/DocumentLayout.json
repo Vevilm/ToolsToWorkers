@@ -3,36 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\views\\users\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:views\\users\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\views\\users\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:views\\users\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\models\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:models\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\data\\searchdata\\usersearchdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:data\\searchdata\\usersearchdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\views\\tools\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:views\\tools\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\data\\repositoryinterfaces\\iusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:data\\repositoryinterfaces\\iusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\data\\pageinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:data\\pageinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\views\\login\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:views\\login\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\views\\tools\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:views\\tools\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\data\\jwtgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:data\\jwtgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\data\\logindata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:data\\logindata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|c:\\users\\alexe\\desktop\\toolstoworkers\\toolstoworkers\\models\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D3BAF17-8FEB-4B88-9AC4-5C19ABFF227B}|ToolsToWorkers.csproj|solutionrelative:models\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,17 +50,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 185,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Models\\Repositories\\UserRepository.cs",
               "RelativeDocumentMoniker": "Models\\Repositories\\UserRepository.cs",
               "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Models\\Repositories\\UserRepository.cs",
               "RelativeToolTip": "Models\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAACsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAhwDUAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-19T06:53:05.088Z",
               "IsPinned": true,
@@ -60,95 +68,122 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "Controllers\\UsersController.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAnwFwAAAAsAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "LoginData.cs",
+              "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Data\\LoginData.cs",
+              "RelativeDocumentMoniker": "Data\\LoginData.cs",
+              "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Data\\LoginData.cs",
+              "RelativeToolTip": "Data\\LoginData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T07:31:53.533Z",
+              "WhenOpened": "2024-10-21T16:40:29.406Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IUsersRepository.cs",
-              "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Data\\RepositoryInterfaces\\IUsersRepository.cs",
-              "RelativeDocumentMoniker": "Data\\RepositoryInterfaces\\IUsersRepository.cs",
-              "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Data\\RepositoryInterfaces\\IUsersRepository.cs",
-              "RelativeToolTip": "Data\\RepositoryInterfaces\\IUsersRepository.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T23:15:24.625Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Views\\Users\\Details.cshtml",
-              "RelativeDocumentMoniker": "Views\\Users\\Details.cshtml",
-              "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Views\\Users\\Details.cshtml",
-              "RelativeToolTip": "Views\\Users\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-20T23:36:41.729Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Views\\Users\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Views\\Users\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Views\\Users\\Edit.cshtml",
-              "RelativeToolTip": "Views\\Users\\Edit.cshtml",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-20T23:36:32.726Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "PageInfo.cs",
-              "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Data\\PageInfo.cs",
-              "RelativeDocumentMoniker": "Data\\PageInfo.cs",
-              "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Data\\PageInfo.cs",
-              "RelativeToolTip": "Data\\PageInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAsAAAAAAAAAA==",
+              "Title": "JwtGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Data\\JwtGenerator.cs",
+              "RelativeDocumentMoniker": "Data\\JwtGenerator.cs",
+              "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Data\\JwtGenerator.cs",
+              "RelativeToolTip": "Data\\JwtGenerator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T22:29:07.778Z",
+              "WhenOpened": "2024-10-21T14:57:50.596Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserSearchData.cs",
-              "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Data\\SearchData\\UserSearchData.cs",
-              "RelativeDocumentMoniker": "Data\\SearchData\\UserSearchData.cs",
-              "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Data\\SearchData\\UserSearchData.cs",
-              "RelativeToolTip": "Data\\SearchData\\UserSearchData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAjAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T21:18:03.934Z",
+              "WhenOpened": "2024-10-21T08:49:53.544Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Views\\Users\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Users\\Index.cshtml",
-              "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Views\\Users\\Index.cshtml",
-              "RelativeToolTip": "Views\\Users\\Index.cshtml",
-              "ViewState": "AgIAACQAAAAAAAAAAAAQwDQAAAAjAAAAAAAAAA==",
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Views\\Tools\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Tools\\Details.cshtml",
+              "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Views\\Tools\\Details.cshtml",
+              "RelativeToolTip": "Views\\Tools\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-20T20:49:00.664Z",
+              "WhenOpened": "2024-10-21T20:36:04.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "Controllers\\LoginController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T20:17:34.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Views\\Login\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Views\\Login\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Views\\Login\\Index.cshtml.cs",
+              "RelativeToolTip": "Views\\Login\\Index.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T19:35:45.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Views\\Login\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Login\\Index.cshtml",
+              "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Views\\Login\\Index.cshtml",
+              "RelativeToolTip": "Views\\Login\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-21T19:35:34.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Controllers\\UsersController.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAGUAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T19:31:57.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Views\\Tools\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Tools\\Index.cshtml",
+              "ToolTip": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\Views\\Tools\\Index.cshtml",
+              "RelativeToolTip": "Views\\Tools\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-21T19:28:54.621Z",
               "EditorCaption": ""
             }
           ]

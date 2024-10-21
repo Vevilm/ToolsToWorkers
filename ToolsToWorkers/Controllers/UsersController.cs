@@ -85,14 +85,12 @@ namespace ToolsToWorkers.Controllers
             return RedirectToAction("Index");
         }
 
-        int page = 1;
-
         public async Task<IActionResult> Index()
         {
-            IEnumerable<User> users = await repository.GetSlice(1, 2, await repository.GetAllDBSet());
+            IEnumerable<User> users = await repository.GetSlice(1, 3, await repository.GetAllDBSet());
             UserSearchData searchData = new UserSearchData();
             searchData.Users = users;
-            searchData.pageInfo = new PageInfo { TotalItems = repository.GetAll().Result.Count() };
+            searchData.TotalItems = repository.GetAll().Result.Count();
             return View(searchData);
         }
         [HttpPost]
@@ -101,7 +99,8 @@ namespace ToolsToWorkers.Controllers
             var users = FilterByRole(await repository.GetAllDBSet(), searchData.Role);
             users = FilterByStatus(users, searchData.Status);
             var usersList = await repository.SearchByLogin(searchData.Login, users);
-            searchData.Users = await repository.GetSlice(searchData.pageInfo.PageNumber, searchData.pageInfo.PageSize, usersList);
+            searchData.Users = await repository.GetSlice(searchData.PageNumber, searchData.PageSize, usersList);
+            searchData.TotalItems = repository.GetAll().Result.Count();
             // Сюда пагинацию
             return View(searchData);
         }

@@ -50,9 +50,10 @@
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            @for (int i = 1; i < 1+Model.pageInfo.TotalPages; i++)
+            @for (int i = 1; i <= Model.TotalPages; i++)
             {
-                <li class="page-item"><a class="page-link" href="#">@i</a></li>
+                <li class="page-item"><input type="button" class="btn btn-primary" asp-for="PageNumber" value="@i">@i
+                </li>
             }
                 <a class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>

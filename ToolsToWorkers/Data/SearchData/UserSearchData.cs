@@ -8,7 +8,11 @@ namespace ToolsToWorkers.Data.SearchData
         public string Login { get; set; } = "";
         public string Role { get; set; } = "Все";
         public string Status { get; set; } = "Все";
-        public PageInfo pageInfo { get; set; }
+
+        public int PageNumber { get; set; } = 1;
+        public int PageSize { get; set; } = 3;
+        public int TotalItems { get; set; }
+        public int TotalPages { get { return (int)Math.Ceiling((decimal)TotalItems / PageSize); } }
         public UserSearchData() { }
         public UserSearchData(UserSearchData userSearchData, int i)
         {
@@ -16,10 +20,6 @@ namespace ToolsToWorkers.Data.SearchData
             Login = userSearchData.Login;
             Role = userSearchData.Role;
             Status = userSearchData.Status;
-            pageInfo = userSearchData.pageInfo;
-            if (i == 0) pageInfo.PageNumber += 1;
-            else if(i == -1) pageInfo.PageNumber -= 1;
-            else pageInfo.PageNumber = i;
 
         } 
     }
