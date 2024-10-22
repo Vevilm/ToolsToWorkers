@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ToolsToWorkers.Data.enums;
 using ToolsToWorkers.Data.RepositoryInterfaces;
 using ToolsToWorkers.Data.SearchData;
 using ToolsToWorkers.Models;
@@ -9,10 +10,12 @@ namespace ToolsToWorkers.Controllers
     public class ToolRequestsController : Controller
     {
         private readonly IToolRequestRepository repository;
+        private readonly IToolRepository toolRepository;
 
-        public ToolRequestsController(IToolRequestRepository repository)
+        public ToolRequestsController(IToolRequestRepository repository, IToolRepository toolRepository)
         {
             this.repository = repository;
+            this.toolRepository = toolRepository;
         }
 
         public async Task<IActionResult> Edit(int ID)
@@ -28,6 +31,13 @@ namespace ToolsToWorkers.Controllers
                 if (!ModelState.IsValid)
                 {
                     return View(toolRequest);
+                }
+                if (toolRequest.Status == ToolRequestStatus.Принят.ToString())
+                {
+                    Tool tool = await toolRepository.GetToolByIDAsyncNoTracking(toolRequest.ToolID);
+                    tool.Status = ToolStatus.Доступен.ToString();
+                    toolRepository.Update(tool);
+                    toolRequest.Returned = DateTime.Now;
                 }
                 repository.Update(toolRequest);
                 return RedirectToAction("Index");
@@ -60,27 +70,33 @@ namespace ToolsToWorkers.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1, string searchDataStr = "")
         {
-            IEnumerable<ToolRequestsView> toolRequests = await repository.GetAll();
-            ToolRequestSearchData searchData = new ToolRequestSearchData();
-            searchData.ToolRequests = toolRequests;
+            ToolRequestSearchData searchData = ToolRequestSearchData.GetSearchData(searchDataStr);
+            var toolRequests = FilterByStatus(await repository.GetAllDBSet(), searchData.Status);
+            searchData.ToolRequests = await repository.GetSlice(searchData.PageNumber, searchData.PageSize, await GetToolRequests(searchData, toolRequests));
+            searchData.elementsCount = GetToolRequests(searchData, toolRequests).Result.Count();
             return View(searchData);
         }
         [HttpPost]
         public async Task<IActionResult> Index(ToolRequestSearchData searchData)
         {
             var toolRequests = FilterByStatus(await repository.GetAllDBSet(), searchData.Status);
+            searchData.ToolRequests = await repository.GetSlice(searchData.PageNumber, searchData.PageSize, await GetToolRequests(searchData, toolRequests));
+            searchData.elementsCount = GetToolRequests(searchData, toolRequests).Result.Count();
+            return View(searchData);
+        }
+
+        async Task<IQueryable<ToolRequestsView>> GetToolRequests(ToolRequestSearchData searchData, IQueryable<ToolRequestsView> filtered)
+        {
             switch (searchData.Field)
             {
-                case "Логин":
-                    searchData.ToolRequests = await repository.SearchByLogin(searchData.Value, toolRequests);
-                    break;
                 case "Название":
-                    searchData.ToolRequests = await repository.SearchByName(searchData.Value, toolRequests);
-                    break;
+                    return await repository.SearchByNameQuery(searchData.Value, filtered);
+                case "Логин":
+                    return await repository.SearchByLoginQuery(searchData.Value, filtered);
             }
-            return View(searchData);
+            return await repository.GetAllDBSet();
         }
 
         private IQueryable<ToolRequestsView> FilterByStatus(IQueryable<ToolRequestsView> toolRequests, string status)

@@ -4,12 +4,20 @@
 *@
 @{
 }
-<a typeof="btn btn-success" asp-controller="Articles" asp-action="Edit" asp-route-id="@Model.ID">Редактировать элемент</a>
+
+<h1>Информация об артикле "@Model.ID"</h1>
 <br>
-<h1>Информация об артикле @Model.ID</h1>
-<p1>Название: @Model.Name</p1>
+<div class="row">
+    <div class="col-md-3">Наименование:</div>
+    <div class="col-md-3">@Model.Name</div>
+</div>
+<div class="row">
+    <div class="col-md-3">Вес:</div>
+    <div class="col-md-3">@Model.Weight</div>
+</div>
+<div class="row">
+    <div class="col-md-3">Описание:</div>
+    <div style="max-width: 40%" class="col-md-3"><label style="border: none;">@Model.Description</label></div>
+</div>
 <br>
-<p1>Вес: @Model.Weight</p1>
-<br>
-<p1>Описание:<br>@Model.Description</p1>
-<br>
+<a typeof="btn btn-success" asp-controller="Articles" asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-secondary my-2">Редактировать</a>

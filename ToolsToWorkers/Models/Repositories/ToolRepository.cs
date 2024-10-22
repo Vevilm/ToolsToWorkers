@@ -96,5 +96,46 @@ namespace ToolsToWorkers.Models.Repositories
             var tool = await _context.Tools.AsNoTracking().FirstOrDefaultAsync(a => a.ID == id);
             return tool;
         }
+
+        public bool ArticleTaken(string article)
+        {
+            var user = _context.Articles.FirstOrDefault(a => a.ID == article);
+            return user != null;
+        }
+
+        public async Task<IEnumerable<ToolsView>> GetSlice(int count, int elementsPerPage, IQueryable<ToolsView> toolViews)
+        {
+            return await toolViews.Skip((count - 1) * elementsPerPage).Take(elementsPerPage).ToListAsync();
+        }
+
+        public async Task<IQueryable<ToolsView>> SearchByNameQuery(string name, IQueryable<ToolsView> toolsViews)
+        {
+            IQueryable<ToolsView> result;
+            if (name != null)
+            {
+                result = (toolsViews ?? _context.toolsView.AsNoTracking()).Where(a => a.Name.Contains(name));
+            }
+            else
+            {
+                return (toolsViews ?? _context.toolsView.AsNoTracking());
+            }
+            if (result == null) return (toolsViews ?? _context.toolsView.AsNoTracking());
+            else return result;
+        }
+
+        public async Task<IQueryable<ToolsView>> SearchByStorageQuery(string storage, IQueryable<ToolsView> toolsViews)
+        {
+            IQueryable<ToolsView> result;
+            if (storage != null)
+            {
+                result = (toolsViews ?? _context.toolsView.AsNoTracking()).Where(a => a.Storage.Contains(storage));
+            }
+            else
+            {
+                return (toolsViews ?? _context.toolsView.AsNoTracking());
+            }
+            if (result == null) return (toolsViews ?? _context.toolsView.AsNoTracking());
+            else return result;
+        }
     }
 }

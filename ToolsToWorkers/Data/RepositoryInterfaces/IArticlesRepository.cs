@@ -21,5 +21,13 @@ namespace ToolsToWorkers.Data.RepositoryInterfaces
         bool Update(Article article);
 
         bool Save();
+
+        public bool ArticleTaken(string article);
+
+        Task<IEnumerable<Article>> GetSlice(int count, int elementsPerPage, IQueryable<Article> articles);
+
+        Task<IQueryable<Article>> SearchByIDQuery(string name);
+
+        Task<IQueryable<Article>> SearchByNameQuery(string name);
     }
 }

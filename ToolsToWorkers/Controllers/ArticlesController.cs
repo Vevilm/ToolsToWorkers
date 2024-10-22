@@ -3,6 +3,7 @@ using ToolsToWorkers.Data.RepositoryInterfaces;
 using ToolsToWorkers.Data.SearchData;
 using ToolsToWorkers.Models.Views;
 using ToolsToWorkers.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ToolsToWorkers.Controllers
 {
@@ -25,7 +26,7 @@ namespace ToolsToWorkers.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
+                if (!ModelState.IsValid || article.Weight <= 0)
                 {
                     return View(article);
                 }
@@ -52,7 +53,7 @@ namespace ToolsToWorkers.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Article article)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid || article.Weight <= 0 || repository.ArticleTaken(article.ID))
             {
                 return View(article);
             }
@@ -60,27 +61,31 @@ namespace ToolsToWorkers.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1, string searchDataStr = "")
         {
-            IEnumerable<Article> articles = await repository.GetAll();
-            ArticleSearchData searchData = new ArticleSearchData();
-            searchData.Articles = articles;
+            ArticleSearchData searchData = ArticleSearchData.GetSearchData(searchDataStr);
+            searchData.Articles = await repository.GetSlice(searchData.PageNumber, searchData.PageSize, await GetArticles(searchData));
+            searchData.elementsCount = GetArticles(searchData).Result.Count();
             return View(searchData);
         }
+
         [HttpPost]
         public async Task<IActionResult> Index(ArticleSearchData searchData)
+        {
+            searchData.Articles = await repository.GetSlice(searchData.PageNumber, searchData.PageSize, await GetArticles(searchData));
+            searchData.elementsCount = GetArticles(searchData).Result.Count();
+            return View(searchData);
+        }
+        async Task<IQueryable<Article>> GetArticles(ArticleSearchData searchData)
         {
             switch (searchData.Field)
             {
                 case "Название":
-                    searchData.Articles = await repository.SearchByName(searchData.Value, await repository.GetAllDBSet());
-                    break;
+                    return await repository.SearchByNameQuery(searchData.Value);
                 case "Артикул":
-                    searchData.Articles = await repository.SearchByID(searchData.Value, await repository.GetAllDBSet());
-                    break;
+                    return await repository.SearchByIDQuery(searchData.Value);
             }
-            return View(searchData);
+            return await repository.GetAllDBSet();
         }
-
     }
 }

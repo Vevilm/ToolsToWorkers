@@ -23,5 +23,9 @@ namespace ToolsToWorkers.Data.RepositoryInterfaces
         bool Update(Storage storage);
 
         bool Save();
+
+        Task<IEnumerable<Storage>> GetSlice(int count, int elementsPerPage, IQueryable<Storage> storages);
+
+        IQueryable<Storage> SearchByNameQuery(string login, IQueryable<Storage> storages);
     }
 }

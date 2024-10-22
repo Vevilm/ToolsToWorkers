@@ -7,23 +7,23 @@
 }
 <form method="post" asp-action="Create">
     <div class="mb-3">
-        <label asp-for="Surname">Фамилия:</label>
-        <input asp-for="Surname" class="form-control" autocomplete="off">
+        <label asp-for="Surname">Фамилия</label>
+        <input asp-for="Surname" class="form-control" autocomplete="off" style="width: 30%">
         <span asp-validation-for="Surname" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Name">Имя:</label>
-        <input asp-for="Name" class="form-control" autocomplete="off">
+        <label asp-for="Name">Имя</label>
+        <input asp-for="Name" class="form-control" autocomplete="off" style="width: 30%">
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Patronymic">Отчество:</label>
-        <input asp-for="Patronymic" class="form-control" autocomplete="off">
+        <label asp-for="Patronymic">Отчество</label>
+        <input asp-for="Patronymic" class="form-control" autocomplete="off" style="width: 30%">
         <span asp-validation-for="Patronymic" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Role">Роль в системе:</label>
-        <select asp-for="Role" class="form-control">
+        <label asp-for="Role">Роль в системе</label>
+        <select asp-for="Role" class="form-control" style="width: 30%">
             @for (int i = 0; i < Enum.GetNames(typeof(UserRoles)).Length; i++)
             {
                 <option value="@Enum.ToObject(typeof(UserRoles), i)">@Enum.ToObject(typeof(UserRoles), i)</option>
@@ -32,18 +32,18 @@
         <span asp-validation-for="Role" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Login">Логин:</label>
-        <input asp-for="Login" class="form-control" autocomplete="off">
+        <label asp-for="Login">Логин</label>
+        <input asp-for="Login" class="form-control" autocomplete="off" style="width: 30%">
         <span asp-validation-for="Login" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="HashedPassword">Пароль:</label>
-        <input asp-for="HashedPassword" class="form-control" autocomplete="off">
+        <label asp-for="HashedPassword">Пароль</label>
+        <input asp-for="HashedPassword" class="form-control" autocomplete="off" style="width: 30%">
         <span asp-validation-for="HashedPassword" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Status">Статус:</label>
-        <select asp-for="Status" class="form-control">
+        <label asp-for="Status">Статус</label>
+        <select asp-for="Status" class="form-control" style="width: 30%">
             @for (int i = 0; i < Enum.GetNames(typeof(UserStaus)).Length; i++)
             {
                 <option value="@Enum.ToObject(typeof(UserStaus), i)">@Enum.ToObject(typeof(UserStaus), i)</option>
@@ -51,7 +51,7 @@
         </select>
         <span asp-validation-for="Status" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Добавить</button>
+    <button type="submit" class="btn btn-secondary my-2">Добавить</button>
 </form>
 
 

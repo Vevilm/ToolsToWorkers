@@ -4,36 +4,79 @@
 }
 
 <form method="post" asp-action="Index">
-    <a typeof="btn btn-success" asp-controller="ToolRequests" asp-action="Create">Создать новый элемент</a>
+   
     <h1>Запросы инструментов</h1>
-    <input asp-for="Value" class="form-control" autocomplete="off" type="search">
-    <span asp-validation-for="Value" class="text-danger"></span>
-    <span asp-validation-for="Value" class="text-danger"></span>
-    <button type="submit" class="btn btn-primary">Поиск</button>
-    <br>
-    <select asp-for="Field" class="form-control">
+    <form>
+        <input asp-for="Value" class="form-control" style="display: inline; width: 40%;" autocomplete="off" type="search">
+    
+        <select asp-for="Field" class="form-control" style="display: inline; width: 10%;">
         <option value="Логин">Логин</option>
         <option value="Название">Название</option>
     </select>
-    <br>
-    <select asp-for="Status" class="form-control">
+        <p style="display: inline;"> Статус</p>
+        <select asp-for="Status" class="form-control" style="display: inline; width: 10%;">
         <option value="Все">Все</option>
         @for (int i = 0; i < Enum.GetNames(typeof(ToolRequestStatus)).Length; i++)
         {
             <option value="@Enum.ToObject(typeof(ToolRequestStatus), i)">@Enum.ToObject(typeof(ToolRequestStatus), i)</option>
         }
     </select>
-    <span asp-validation-for="Status" class="text-danger"></span>
+        <button type="submit" class="btn btn-primary" style="vertical-align: baseline;">Поиск</button>
+    </form>
     <br>
-    <p1>На данной странице расположен каталог пользователей. Выберите того, который вам необходим.</p1>
+    <h2>Ведомость</h2>
+    <br>
+    <div class="row">
+        <div class="col-md-3"><b>Логин</b></div>
+        <div class="col-md-3"><b>Статус</b></div>
+        <div class="col-md-3"><b>Наименование</b></div>
+    </div>
     <br>
     @foreach (var item in Model.ToolRequests)
     {
-        <a typeof="btn btn-success" asp-controller="ToolRequests" asp-action="Details" asp-route-id="@item.RequestID">
-            @item.UserLogin
-            @item.RequestStatus
-            @item.ToolName
-        </a>
-        <br>
+        <div class="row" asp-controller="ToolRequests" asp-action="Details" asp-route-id="@item.RequestID">
+            <div class="col-md-3">@item.UserLogin</div>
+            <div class="col-md-3">@item.RequestStatus</div>
+            <div class="col-md-3">@item.ToolName</div>
+            <a typeof="btn btn-success" asp-controller="ToolRequests" asp-action="Details" asp-route-id="@item.RequestID">Подробнее</a>
+        </div>
+    }
+    @if (Model.TotalPages > 1)
+
+    {
+        <ul class="pagination" style="margin:auto; align-content:center">
+            @if (Model.HasPreviousPage)
+            {
+                <a asp-route-page="@(@Model.PageNumber-1)"
+                   asp-route-searchDataStr="@Model.ToString(@Model.PageNumber-1)"
+                   class="btn btn-outline-dark">
+                    Назад
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </a>
+            }
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                <li class="page-item">
+                    <a asp-route-page="@i"
+                       asp-route-searchDataStr="@Model.ToString(i)"
+                       class="btn btn-outline-dark">
+                        @i
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </a>
+                </li>
+            }
+            @if (Model.HasNextPage)
+            {
+                <a asp-route-page="@(@Model.PageNumber+1)"
+                   asp-route-searchDataStr="@Model.ToString(@Model.PageNumber+1)"
+                   class="btn btn-outline-dark">
+                    Вперёд
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </a>
+            }
+        </ul>
+    }
+    @if (false){
+        <a typeof="btn btn-success" class="btn btn-secondary my-2" asp-controller="ToolRequests" asp-action="Create">Создать новый элемент</a>
     }
 </form>

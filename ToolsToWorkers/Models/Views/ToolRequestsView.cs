@@ -3,7 +3,7 @@
     public class ToolRequestsView
     {
         public int RequestID { get; set; }
-        public DateTime Requested {  get; set; }
+        public DateTime Requested { get; set; }
         public DateTime Returned { get; set; }
 
         // Поля для представления элемента в поиске

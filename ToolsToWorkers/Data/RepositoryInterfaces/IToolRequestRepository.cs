@@ -26,5 +26,11 @@ namespace ToolsToWorkers.Data.RepositoryInterfaces
         bool Update(ToolRequest toolRequest);
 
         bool Save();
+
+        Task<IEnumerable<ToolRequestsView>> GetSlice(int count, int elementsPerPage, IQueryable<ToolRequestsView> toolRequests);
+
+        Task<IQueryable<ToolRequestsView>> SearchByLoginQuery(string login, IQueryable<ToolRequestsView> toolRequests);
+
+        Task<IQueryable<ToolRequestsView>> SearchByNameQuery(string login, IQueryable<ToolRequestsView> toolRequests);
     }
 }

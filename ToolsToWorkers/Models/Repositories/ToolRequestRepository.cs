@@ -54,6 +54,11 @@ namespace ToolsToWorkers.Models.Repositories
             return toolRequest;
         }
 
+        public async Task<IEnumerable<ToolRequestsView>> GetSlice(int count, int elementsPerPage, IQueryable<ToolRequestsView> toolRequests)
+        {
+            return await toolRequests.Skip((count - 1) * elementsPerPage).Take(elementsPerPage).ToListAsync();
+        }
+
         public bool Save()
         {
             var result = _context.SaveChanges();
@@ -75,6 +80,21 @@ namespace ToolsToWorkers.Models.Repositories
             else return result;
         }
 
+        public async Task<IQueryable<ToolRequestsView>> SearchByLoginQuery(string login, IQueryable<ToolRequestsView> toolRequests)
+        {
+            IQueryable<ToolRequestsView> result;
+            if (login != null)
+            {
+                result = (toolRequests ?? _context.toolRequestsView.AsNoTracking()).Where(a => a.UserLogin.Contains(login));
+            }
+            else
+            {
+                return (toolRequests ?? _context.toolRequestsView.AsNoTracking());
+            }
+            if (result == null) return (toolRequests ?? _context.toolRequestsView.AsNoTracking());
+            else return result;
+        }
+
         public async Task<IEnumerable<ToolRequestsView>> SearchByName(string name, IQueryable<ToolRequestsView> toolRequests)
         {
             List<ToolRequestsView> result = new List<ToolRequestsView>();
@@ -87,6 +107,21 @@ namespace ToolsToWorkers.Models.Repositories
                 return await (toolRequests ?? _context.toolRequestsView.AsNoTracking()).ToListAsync();
             }
             if (result == null) return await (toolRequests ?? _context.toolRequestsView.AsNoTracking()).ToListAsync();
+            else return result;
+        }
+
+        public async Task<IQueryable<ToolRequestsView>> SearchByNameQuery(string name, IQueryable<ToolRequestsView> toolRequests)
+        {
+            IQueryable<ToolRequestsView> result;
+            if (name != null)
+            {
+                result = (toolRequests ?? _context.toolRequestsView.AsNoTracking()).Where(a => a.ToolName.Contains(name));
+            }
+            else
+            {
+                return (toolRequests ?? _context.toolRequestsView.AsNoTracking());
+            }
+            if (result == null) return (toolRequests ?? _context.toolRequestsView.AsNoTracking());
             else return result;
         }
 

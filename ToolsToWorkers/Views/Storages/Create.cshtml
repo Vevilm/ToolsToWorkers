@@ -7,13 +7,13 @@
 }
 <form method="post" asp-action="Create">
     <div class="mb-3">
-        <label asp-for="Name">Название:</label>
-        <input asp-for="Name" class="form-control" autocomplete="off">
+        <label asp-for="Name">Название</label>
+        <input asp-for="Name" class="form-control" autocomplete="off" style="width: 30%">
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Type">Тип склада:</label>
-        <select asp-for="Type" class="form-control">
+        <label asp-for="Type">Тип склада</label>
+        <select asp-for="Type" class="form-control" style="width: 20%">
             @for (int i = 0; i < Enum.GetNames(typeof(StorageType)).Length; i++)
             {
                 <option value="@Enum.ToObject(typeof(StorageType), i)">@Enum.ToObject(typeof(StorageType), i)</option>
@@ -22,8 +22,8 @@
         <span asp-validation-for="Type" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Status">Статус:</label>
-        <select asp-for="Status" class="form-control">
+        <label asp-for="Status">Статус</label>
+        <select asp-for="Status" class="form-control" style="width: 20%">
             @for (int i = 0; i < Enum.GetNames(typeof(StorageStatus)).Length; i++)
             {
                 <option value="@Enum.ToObject(typeof(StorageStatus), i)">@Enum.ToObject(typeof(StorageStatus), i)</option>

@@ -4,16 +4,29 @@
 *@
 @{
 }
-<a typeof="btn btn-success" asp-controller="Users" asp-action="Edit" asp-route-id="@Model.ID">Редактировать элемент</a>
+
+
+<h1>Информация о пользователе "@Model.Login"</h1>
 <br>
-<h1>Информация о пользователе @Model.Login</h1>
-<p1>Фамилия: @Model.Surname</p1>
+<div class="row">
+    <div class="col-md-3">Фамилия: </div>
+    <div class="col-md-3">@Model.Surname</div>
+</div>
+<div class="row">
+    <div class="col-md-3">Имя: </div>
+    <div class="col-md-3">@Model.Name</div>
+</div>
+<div class="row">
+    <div class="col-md-3">Отчество: </div>
+    <div class="col-md-3">@Model.Patronymic</div>
+</div>
+<div class="row">
+    <div class="col-md-3">Роль в системе: </div>
+    <div class="col-md-3">@Model.Role</div>
+</div>
+<div class="row">
+    <div class="col-md-3">Идентификатор: </div>
+    <div class="col-md-3">@Model.ID</div>
+</div>
 <br>
-<p1>Имя: @Model.Name</p1>
-<br>
-<p1>Отчество: @Model.Patronymic</p1>
-<br>
-<p1>Роль в системе: @Model.Role</p1>
-<br>
-<p1>Идентификатор: @Model.ID</p1>
-<br>
+<a typeof="btn btn-success" asp-controller="Users" asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-secondary my-2">Редактировать</a>

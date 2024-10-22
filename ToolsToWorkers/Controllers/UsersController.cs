@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using ToolsDistribution.Data;
-using ToolsToWorkers.Data;
 using ToolsToWorkers.Data.RepositoryInterfaces;
 using ToolsToWorkers.Data.SearchData;
 using ToolsToWorkers.Models;
@@ -84,27 +82,25 @@ namespace ToolsToWorkers.Controllers
             repository.Add(user);
             return RedirectToAction("Index");
         }
-
-        public async Task<IActionResult> Index()
-        {
-            IEnumerable<User> users = await repository.GetSlice(1, 3, await repository.GetAllDBSet());
-            UserSearchData searchData = new UserSearchData();
-            searchData.Users = users;
-            searchData.TotalItems = repository.GetAll().Result.Count();
-            return View(searchData);
-        }
         [HttpPost]
         public async Task<IActionResult> Index(UserSearchData searchData)
         {
             var users = FilterByRole(await repository.GetAllDBSet(), searchData.Role);
             users = FilterByStatus(users, searchData.Status);
-            var usersList = await repository.SearchByLogin(searchData.Login, users);
-            searchData.Users = await repository.GetSlice(searchData.PageNumber, searchData.PageSize, usersList);
-            searchData.TotalItems = repository.GetAll().Result.Count();
-            // Сюда пагинацию
+            users = await repository.SearchByLoginQuery(searchData.Login, users);
+            searchData.Users = await repository.GetSlice(searchData.PageNumber, searchData.PageSize, users);
+            searchData.elementsCount = users.Count();
             return View(searchData);
         }
-
+        public async Task<IActionResult> Index(int page = 1, string searchDataStr = "")
+        {
+            UserSearchData searchData = UserSearchData.GetSearchData(searchDataStr);
+            var users = FilterByRole(await repository.GetAllDBSet(), searchData.Role);
+            users = FilterByStatus(users, searchData.Status);
+            searchData.Users = await repository.GetSlice(searchData.PageNumber, searchData.PageSize, await repository.SearchByLoginQuery(searchData.Login, users));
+            searchData.elementsCount = repository.SearchByLoginQuery(searchData.Login, users).Result.Count();
+            return View(searchData);
+        }
 
         private IQueryable<User> FilterByRole(IQueryable<User> users, string role)
         {
@@ -127,5 +123,7 @@ namespace ToolsToWorkers.Controllers
                     return (IQueryable<User>)users.Where(x => x.Status == status);
             }
         }
+
+
     }
 }

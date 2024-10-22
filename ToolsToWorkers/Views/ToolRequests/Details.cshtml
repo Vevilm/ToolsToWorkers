@@ -4,30 +4,54 @@
 *@
 @{
 }
-<a typeof="btn btn-success" asp-controller="ToolRequests" asp-action="Edit" asp-route-id="@Model.RequestID">Редактировать элемент</a>
-<br>
+
 <h1>Информация о запросе №@Model.RequestID</h1>
 <br>
-<p1>Запрошен: @Model.Requested.ToString()</p1>
+<div class="row">
+    <div class="col-md-3">Запрошен: </div>
+    <div class="col-md-3">@Model.Requested.ToString()</div>
+</div>
+<div class="row">
+    <div class="col-md-3">Возвращён: </div>
+    <div class="col-md-3">@((Model.Returned < Model.Requested ? "-/-" : Model.Returned))</div>
+</div>
+<div class="row">
+    <div class="col-md-3">Статус: </div>
+    <div class="col-md-3">@Model.RequestStatus</div>
+</div>
 <br>
-<p1>@("Возвращён: " + (Model.Returned < Model.Requested ? "-/-" : Model.Returned))</p1>
+<h2>Пользователь</h2>
 <br>
-<p1>Статус: @Model.RequestStatus</p1>
+<div class="row">
+    <div class="col-md-3">Логин пользователя: </div>
+    <div class="col-md-3">@Model.UserLogin</div>
+</div>
+<div class="row">
+    <div class="col-md-3">ФИО: </div>
+    <div class="col-md-3">@Model.UserSurname @Model.UserName @Model.UserPatronymic</div>
+</div>
 <br>
-<h2>Запросивший пользователь:</h2>
+<h2>Инструмент</h2>
 <br>
-<p1>Логин пользователя: @Model.UserLogin</p1>
+<div class="row">
+    <div class="col-md-3">Код: </div>
+    <div class="col-md-3">@Model.ToolID</div>
+</div>
+<div class="row">
+    <div class="col-md-3">Артикул: </div>
+    <div class="col-md-3">@Model.ToolArticle</div>
+</div>
+<div class="row">
+    <div class="col-md-3">Название: </div>
+    <div class="col-md-3">@Model.ToolName</div>
+</div>
+<div class="row">
+    <div class="col-md-3">Вес: </div>
+    <div class="col-md-3">@Model.ToolWeight</div>
+</div>
+<div class="row">
+    <div class="col-md-3">Описание:</div>
+    <div style="max-width: 40%" class="col-md-3"><label style="border: none;">@Model.ToolDescription</label></div>
+</div>
 <br>
-<p1>ФИО: @Model.UserSurname @Model.UserName @Model.UserPatronymic</p1>
-<br>
-<h2>Запрошенный инструмент:</h2>
-<br>
-<p1>Код: @Model.ToolID</p1>
-<br>
-<p1>Артикул: @Model.ToolArticle</p1>
-<br>
-<p1>Название: @Model.ToolName</p1>
-<br>
-<p1>Вес: @Model.ToolWeight</p1>
-<br>
-<p1>Описание: @Model.ToolDescription</p1>
+<a typeof="btn btn-success" asp-controller="ToolRequests" asp-action="Edit" asp-route-id="@Model.RequestID" class="btn btn-secondary my-2">Редактировать</a>

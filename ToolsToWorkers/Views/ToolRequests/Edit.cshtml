@@ -1,5 +1,5 @@
 ﻿@using ToolsToWorkers.Data.enums
-@model Storage
+@model ToolRequest
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -7,33 +7,37 @@
 }
 <form method="post" asp-action="Edit">
     <div class="mb-3">
-        <label asp-for="Name">Название:</label>
-        <input asp-for="Name" class="form-control" autocomplete="off">
-        <span asp-validation-for="Name" class="text-danger"></span>
+        <label asp-for="WorkerID">Код работника</label>
+        <input asp-for="WorkerID" class="form-control" autocomplete="off" style="width: 30%">
+        <span asp-validation-for="WorkerID" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Type">Тип склада:</label>
-        <select asp-for="Type" class="form-control">
-            @for (int i = 0; i < Enum.GetNames(typeof(StorageType)).Length; i++)
-            {
-                <option value="@Enum.ToObject(typeof(StorageType), i)">@Enum.ToObject(typeof(StorageType), i)</option>
-            }
-        </select>
-        <span asp-validation-for="Type" class="text-danger"></span>
+        <label asp-for="ToolID">Код инструмента</label>
+        <input asp-for="ToolID" class="form-control" autocomplete="off" style="width: 30%">
+        <span asp-validation-for="ToolID" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Status">Статус:</label>
-        <select asp-for="Status" class="form-control">
-            @for (int i = 0; i < Enum.GetNames(typeof(StorageStatus)).Length; i++)
+        <label asp-for="Status">Статус</label>
+        <select asp-for="Status" class="form-control" style="width: 30%">
+            @for (int i = 0; i < Enum.GetNames(typeof(ToolRequestStatus)).Length; i++)
             {
-                <option value="@Enum.ToObject(typeof(StorageStatus), i)">@Enum.ToObject(typeof(StorageStatus), i)</option>
+                <option value="@Enum.ToObject(typeof(ToolRequestStatus), i)">@Enum.ToObject(typeof(ToolRequestStatus), i)</option>
             }
         </select>
         <span asp-validation-for="Status" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Изменить</button>
+    <div class="mb-3">
+        <label asp-for="Requested">Запрошен</label>
+        <input asp-for="Requested" class="form-control" autocomplete="off" style="width: 30%">
+        <span asp-validation-for="Requested" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Returned">Возвращён</label>
+        <input asp-for="Returned" class="form-control" autocomplete="off" style="width: 30%">
+        <span asp-validation-for="Returned" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-secondary my-2">Отредактировать</button>
 </form>
-
 
 
 

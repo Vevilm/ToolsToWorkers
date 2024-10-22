@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ToolsToWorkers.Data.RepositoryInterfaces;
 using ToolsToWorkers.Data.SearchData;
 using ToolsToWorkers.Models;
 
 namespace ToolsToWorkers.Controllers
 {
-    [Authorize]
     public class StoragesController : Controller
     {
         private readonly IStorageRepository repository;
@@ -61,11 +59,13 @@ namespace ToolsToWorkers.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1, string searchDataStr = "")
         {
-            IEnumerable<Storage> storages = await repository.GetAll();
-            StorageSearchData searchData = new StorageSearchData();
-            searchData.Storages = storages;
+            StorageSearchData searchData = StorageSearchData.GetSearchData(searchDataStr);
+            var users = FilterByType(await repository.GetAllDBSet(), searchData.Type);
+            users = FilterByStatus(users, searchData.Status);
+            searchData.Storages = await repository.GetSlice(searchData.PageNumber, searchData.PageSize, repository.SearchByNameQuery(searchData.Name, users));
+            searchData.elementsCount = repository.SearchByNameQuery(searchData.Name, users).Count();
             return View(searchData);
         }
         [HttpPost]
@@ -73,7 +73,8 @@ namespace ToolsToWorkers.Controllers
         {
             var users = FilterByType(await repository.GetAllDBSet(), searchData.Type);
             users = FilterByStatus(users, searchData.Status);
-            searchData.Storages = await repository.SearchByName(searchData.Name, users);
+            searchData.Storages = await repository.GetSlice(searchData.PageNumber, searchData.PageSize, repository.SearchByNameQuery(searchData.Name, users));
+            searchData.elementsCount = repository.SearchByNameQuery(searchData.Name, users).Count();
             return View(searchData);
         }
 

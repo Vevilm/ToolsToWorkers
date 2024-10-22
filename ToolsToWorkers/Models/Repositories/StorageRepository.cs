@@ -75,6 +75,26 @@ namespace ToolsToWorkers.Models.Repositories
             else return result;
         }
 
+        public IQueryable<Storage> SearchByNameQuery(string name, IQueryable<Storage> storages)
+        {
+            IQueryable<Storage> result;
+            if (name != null)
+            {
+                result = (storages ?? _context.Storages.AsNoTracking()).Where(a => a.Name.Contains(name));
+            }
+            else
+            {
+                return (storages ?? _context.Storages.AsNoTracking());
+            }
+            if (result == null) return (storages ?? _context.Storages.AsNoTracking());
+            else return result;
+        }
+
+        public async Task<IEnumerable<Storage>> GetSlice(int count, int elementsPerPage, IQueryable<Storage> storages)
+        {
+            return await storages.Skip((count - 1) * elementsPerPage).Take(elementsPerPage).ToListAsync();
+        }
+
         public bool Update(Storage storage)
         {
             _context.Update(storage);

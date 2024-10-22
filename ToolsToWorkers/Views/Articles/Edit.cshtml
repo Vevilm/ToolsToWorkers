@@ -1,44 +1,31 @@
 ﻿@using ToolsToWorkers.Data.enums
-@model ToolRequest
+@model Article
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
 <form method="post" asp-action="Edit">
+    <h1>Редактирование записи с артиклем "@Model.ID"</h1>
+    <br>
     <div class="mb-3">
-        <label asp-for="WorkerID">Код работника:</label>
-        <input asp-for="WorkerID" class="form-control" autocomplete="off">
-        <span asp-validation-for="WorkerID" class="text-danger"></span>
+        <label asp-for="Name">Название</label>
+        <input asp-for="Name" class="form-control" autocomplete="off" style="width: 30%">
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="ToolID">Код инструмента:</label>
-        <input asp-for="ToolID" class="form-control" autocomplete="off">
-        <span asp-validation-for="ToolID" class="text-danger"></span>
+        <label asp-for="Weight">Вес</label>
+        <input asp-for="Weight" class="form-control" autocomplete="off" style="width: 30%">
+        <span asp-validation-for="Weight" class="text-danger"></span>
+        @if(Model.Weight <= 0)
+        {
+            <span class="text-danger">Weight cannot be a negative number.</span>
+        }
     </div>
     <div class="mb-3">
-        <label asp-for="Status">Статус:</label>
-        <select asp-for="Status" class="form-control">
-            @for (int i = 0; i < Enum.GetNames(typeof(ToolRequestStatus)).Length; i++)
-            {
-                <option value="@Enum.ToObject(typeof(ToolRequestStatus), i)">@Enum.ToObject(typeof(ToolRequestStatus), i)</option>
-            }
-        </select>
-        <span asp-validation-for="Status" class="text-danger"></span>
+        <label asp-for="Description">Описание</label>
+        <textarea asp-for="Description" class="form-control" cols="40" rows="5" style="width: 40%"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
     </div>
-    <div class="mb-3">
-        <label asp-for="Requested">Запрошен:</label>
-        <input asp-for="Requested" class="form-control" autocomplete="off">
-        <span asp-validation-for="Requested" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="Returned">Возвращён:</label>
-        <input asp-for="Returned" class="form-control" autocomplete="off">
-        <span asp-validation-for="Returned" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Изменить</button>
+    <button type="submit" class="btn btn-secondary my-2">Отредактировать</button>
 </form>
-
-
-
-

@@ -7,18 +7,22 @@
 }
 <form method="post" asp-action="Edit">
     <div class="mb-3">
-        <label asp-for="ArticleID">Артикул:</label>
-        <input asp-for="ArticleID" class="form-control" autocomplete="off">
+        <label asp-for="ArticleID">Артикул</label>
+        <input asp-for="ArticleID" class="form-control" autocomplete="off" style="width: 30%">
         <span asp-validation-for="ArticleID" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="StorageID">Код склада:</label>
-        <input asp-for="StorageID" class="form-control" autocomplete="off">
+        <label asp-for="StorageID">Код склада</label>
+        <input asp-for="StorageID" class="form-control" autocomplete="off" style="width: 30%">
         <span asp-validation-for="StorageID" class="text-danger"></span>
+        @if (Model.StorageID <= 0)
+        {
+            <span class="text-danger">Incorrect storage number.</span>
+        }
     </div>
     <div class="mb-3">
-        <label asp-for="Status">Статус:</label>
-        <select asp-for="Status" class="form-control">
+        <label asp-for="Status">Статус</label>
+        <select asp-for="Status" class="form-control" style="width: 30%">
             @for (int i = 0; i < Enum.GetNames(typeof(ToolStatus)).Length; i++)
             {
                 <option value="@Enum.ToObject(typeof(ToolStatus), i)">@Enum.ToObject(typeof(ToolStatus), i)</option>
@@ -26,5 +30,5 @@
         </select>
         <span asp-validation-for="Status" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Отредактировать</button>
+    <button type="submit" class="btn btn-secondary my-2">Отредактировать</button>
 </form>

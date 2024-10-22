@@ -28,18 +28,18 @@ namespace ToolsToWorkers.Models.Repositories
             return filtered;
         }
 
-        public async Task<IQueryable<User>> SearchByLogin(string login, IQueryable<User> users)
+        public async Task<IEnumerable<User>> SearchByLogin(string login, IQueryable<User> users)
         {
-            IQueryable<User> result;
+            List<User> result = new List<User>();
             if (login != null)
             {
-                result = (users ?? _context.Users.AsNoTracking()).Where(a => a.Login.Contains(login));
+                result = await (users ?? _context.Users.AsNoTracking()).Where(a => a.Login.Contains(login)).ToListAsync();
             }
             else
             {
-                return users ?? _context.Users.AsNoTracking();
+                 return await (users ?? _context.Users.AsNoTracking()).ToListAsync();
             }
-            if (result == null) return users ?? _context.Users.AsNoTracking();
+            if (result == null) return await (users ?? _context.Users.AsNoTracking()).ToListAsync();
             else return result;
         }
 
@@ -91,7 +91,21 @@ namespace ToolsToWorkers.Models.Repositories
 
         public async Task<IEnumerable<User>> GetSlice(int count, int elementsPerPage, IQueryable<User> users)
         {
-            return await _context.Users.Skip((count-1)*elementsPerPage).Take(elementsPerPage).ToListAsync();
+            return await users.Skip((count - 1) * elementsPerPage).Take(elementsPerPage).ToListAsync();
+        }
+        public async Task<IQueryable<User>> SearchByLoginQuery(string login, IQueryable<User> users)
+        {
+            IQueryable<User> result;
+            if (login != null)
+            {
+                result = (users ?? _context.Users.AsNoTracking()).Where(a => a.Login.Contains(login));
+            }
+            else
+            {
+                return users ?? _context.Users.AsNoTracking();
+            }
+            if (result == null) return users ?? _context.Users.AsNoTracking();
+            else return result;
         }
     }
 }

@@ -82,5 +82,46 @@ namespace ToolsToWorkers.Models.Repositories
             _context.Update(article);
             return Save();
         }
+
+        public bool ArticleTaken(string article)
+        {
+            var user = _context.Articles.FirstOrDefault(a => a.ID == article);
+            return user != null;
+        }
+
+        public async Task<IEnumerable<Article>> GetSlice(int count, int elementsPerPage, IQueryable<Article> articles)
+        {
+            return await articles.Skip((count - 1) * elementsPerPage).Take(elementsPerPage).ToListAsync();
+        }
+
+        public async Task<IQueryable<Article>> SearchByIDQuery(string id)
+        {
+            IQueryable<Article> result;
+            if (id != null)
+            {
+                result = _context.Articles.AsNoTracking().Where(a => a.ID.Contains(id));
+            }
+            else
+            {
+                return _context.Articles.AsNoTracking();
+            }
+            if (result == null) return _context.Articles.AsNoTracking();
+            else return result;
+        }
+
+        public async Task<IQueryable<Article>> SearchByNameQuery(string name)
+        {
+            IQueryable<Article> result;
+            if (name != null)
+            {
+                result = _context.Articles.AsNoTracking().Where(a => a.Name.Contains(name));
+            }
+            else
+            {
+                return _context.Articles.AsNoTracking();
+            }
+            if (result == null) return _context.Articles.AsNoTracking();
+            else return result;
+        }
     }
 }
