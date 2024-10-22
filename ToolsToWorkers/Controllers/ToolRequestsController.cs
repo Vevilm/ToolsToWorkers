@@ -39,6 +39,13 @@ namespace ToolsToWorkers.Controllers
                     toolRepository.Update(tool);
                     toolRequest.Returned = DateTime.Now;
                 }
+                else
+                {
+                    Tool tool = await toolRepository.GetToolByIDAsyncNoTracking(toolRequest.ToolID);
+                    tool.Status = ToolStatus.Занят.ToString();
+                    toolRepository.Update(tool);
+                    toolRequest.Returned = toolRequest.Returned.AddYears(-1);
+                }
                 repository.Update(toolRequest);
                 return RedirectToAction("Index");
             }
