@@ -1,4 +1,5 @@
-﻿@using ToolsToWorkers.Data.enums
+﻿@using ToolsToWorkers.Data
+@using ToolsToWorkers.Data.enums
 @model ToolRequest
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -8,12 +9,24 @@
 <form method="post" asp-action="ChooseWorker">
     <div class="mb-3">
         <label asp-for="WorkerID">Код работника:</label>
-        <input asp-for="WorkerID" class="form-control" autocomplete="off">
+        <input asp-for="WorkerID" class="form-control" autocomplete="off" style="width: 30%">
         <span asp-validation-for="WorkerID" class="text-danger"></span>
     </div>
+    @if (Model.WorkerID < 0)
+
+    {
+        <span class="text-danger">Incorrect Worker ID number.</span>
+    }
+    @{
+        if (MessegaMarkers.InvalidUser && !(Model.WorkerID < 0))
+        {
+            <span class="text-danger">Such a user does not exist.</span>
+            MessegaMarkers.InvalidUser = false;
+        }
+    }
     <div class="mb-3">
         <label asp-for="ToolID">Код инструмента: @Model.ToolID</label>
-        <input asp-for="ToolID" class="form-control" autocomplete="off" disabled>
+        <input asp-for="ToolID" class="form-control" autocomplete="off" disabled style="width: 30%">
     </div>
     <button type="submit" class="btn btn-primary">Добавить</button>
 </form>

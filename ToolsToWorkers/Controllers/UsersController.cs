@@ -5,6 +5,7 @@ using ToolsToWorkers.Data.RepositoryInterfaces;
 using ToolsToWorkers.Data.SearchData;
 using ToolsToWorkers.Models;
 using ToolsToWorkers.Models.Repositories;
+using ToolsToWorkers.Data;
 
 namespace ToolsToWorkers.Controllers
 {
@@ -32,8 +33,9 @@ namespace ToolsToWorkers.Controllers
                     return View(user);
                 }
                 var users = await repository.SearchByLogin(user.Login, null);
-                if (users.Count() > 1)
+                if (users.Count() >= 1 && LoginComparison(users, user))
                 {
+                    MessegaMarkers.InvalidLogin = true;
                     return View(user);
                 }
                 user.HashedPassword = repository.GetByIDAsyncNoTracking(user.ID).Result.HashedPassword;
@@ -47,6 +49,18 @@ namespace ToolsToWorkers.Controllers
 
             }
             return View(user);
+        }
+
+        private bool LoginComparison(IEnumerable<User> users, User user)
+        {
+            foreach (var item in users)
+            {
+                if (item.ID != user.ID)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private bool IsValidExeptPassword() {
@@ -76,6 +90,10 @@ namespace ToolsToWorkers.Controllers
         {
             if (!ModelState.IsValid || repository.LoginTaken(user.Login))
             {
+                if (repository.LoginTaken(user.Login))
+                {
+                    MessegaMarkers.InvalidLogin = true;
+                }
                 return View(user);
             }
             user.HashedPassword = PasswordHasher.Generate(user.HashedPassword);

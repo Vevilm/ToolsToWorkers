@@ -38,10 +38,11 @@
             {
                 <a asp-route-page="@(@Model.PageNumber-1)"
                    asp-route-searchDataStr="@Model.ToString(@Model.PageNumber-1)"
-                   class="btn btn-outline-dark">
+                   class="btn btn-lg btn-block btn-outline-primary" style="margin: 0.1em; padding: 0.7em 1.4em; font-size: 12px; ">
                     Назад
                     <i class="glyphicon glyphicon-chevron-right"></i>
                 </a>
+
             }
             @for (int i = 1; i <= Model.TotalPages; i++)
 
@@ -50,7 +51,7 @@
 
                     <a asp-route-page="@i"
                        asp-route-searchDataStr="@Model.ToString(i)"
-                       class="btn btn-outline-dark">
+                       class="btn btn-lg btn-block btn-outline-primary" style="margin: 0.1em; padding: 0.7em 0.7em; font-size: 12px; ">
                         @i
                         <i class="glyphicon glyphicon-chevron-right"></i>
                     </a>
@@ -61,12 +62,14 @@
             {
                 <a asp-route-page="@(@Model.PageNumber+1)"
                    asp-route-searchDataStr="@Model.ToString(@Model.PageNumber+1)"
-                   class="btn btn-outline-dark">
+                   class="btn btn-lg btn-block btn-outline-primary" style="margin: 0.1em; padding: 0.7em 1.4em; font-size: 12px; ">
                     Вперёд
                     <i class="glyphicon glyphicon-chevron-right"></i>
                 </a>
             }
         </ul>
     }
+
+    <br>
     <a typeof="btn btn-success" class="btn btn-secondary my-2" asp-controller="Articles" asp-action="Create">Создать новый элемент</a>
 </form>

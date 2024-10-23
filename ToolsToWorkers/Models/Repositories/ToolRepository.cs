@@ -103,6 +103,18 @@ namespace ToolsToWorkers.Models.Repositories
             return user != null;
         }
 
+        public bool StorageTaken(int storage)
+        {
+            var user = _context.Storages.FirstOrDefault(a => a.ID == storage);
+            return user != null;
+        }
+
+        public bool WorkerIdTaken(int WorkerID)
+        {
+            var user = _context.Users.FirstOrDefault(a => a.ID == WorkerID);
+            return user != null;
+        }
+
         public async Task<IEnumerable<ToolsView>> GetSlice(int count, int elementsPerPage, IQueryable<ToolsView> toolViews)
         {
             return await toolViews.Skip((count - 1) * elementsPerPage).Take(elementsPerPage).ToListAsync();

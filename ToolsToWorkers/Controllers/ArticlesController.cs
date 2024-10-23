@@ -4,6 +4,7 @@ using ToolsToWorkers.Data.SearchData;
 using ToolsToWorkers.Models.Views;
 using ToolsToWorkers.Models;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using ToolsToWorkers.Data;
 
 namespace ToolsToWorkers.Controllers
 {
@@ -55,6 +56,10 @@ namespace ToolsToWorkers.Controllers
         {
             if (!ModelState.IsValid || article.Weight <= 0 || repository.ArticleTaken(article.ID))
             {
+                if (repository.ArticleTaken(article.ID))
+                {
+                    MessegaMarkers.InvalidArticle = true;
+                }
                 return View(article);
             }
             repository.Add(article);

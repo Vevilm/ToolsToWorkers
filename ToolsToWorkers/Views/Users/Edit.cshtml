@@ -1,5 +1,6 @@
 ﻿@using ToolsToWorkers.Data.enums
 @model User
+@using ToolsToWorkers.Data
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -35,6 +36,13 @@
         <label asp-for="Login" style="width: 30%">Логин</label>
         <input asp-for="Login" class="form-control" autocomplete="off" style="width: 30%">
         <span asp-validation-for="Login" class="text-danger"></span>
+        @{
+            if (MessegaMarkers.InvalidLogin)
+            {
+                <span class="text-danger">This login is already in use.</span>
+                MessegaMarkers.InvalidLogin = false;
+            }
+        }
     </div>
     <div class="mb-3">
         <label asp-for="Status" style="width: 30%">Статус</label>

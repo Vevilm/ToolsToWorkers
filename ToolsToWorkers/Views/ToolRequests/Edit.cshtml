@@ -8,12 +8,12 @@
 <form method="post" asp-action="Edit">
     <div class="mb-3">
         <label asp-for="WorkerID">Код работника</label>
-        <input asp-for="WorkerID" class="form-control" autocomplete="off" style="width: 30%">
+        <input asp-for="WorkerID" class="form-control" autocomplete="off" style="width: 30%" readonly>
         <span asp-validation-for="WorkerID" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label asp-for="ToolID">Код инструмента</label>
-        <input asp-for="ToolID" class="form-control" autocomplete="off" style="width: 30%">
+        <input asp-for="ToolID" class="form-control" autocomplete="off" style="width: 30%" readonly>
         <span asp-validation-for="ToolID" class="text-danger"></span>
     </div>
     <div class="mb-3">
@@ -28,12 +28,12 @@
     </div>
     <div class="mb-3">
         <label asp-for="Requested">Запрошен</label>
-        <input asp-for="Requested" class="form-control" autocomplete="off" style="width: 30%">
+        <input asp-for="Requested" class="form-control" autocomplete="off" style="width: 30%" readonly>
         <span asp-validation-for="Requested" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Returned">Возвращён</label>
-        <input asp-for="Returned" class="form-control" autocomplete="off" style="width: 30%">
+        <label asp-for="Returned" style="display: none;">Возвращён</label>
+        <input asp-for="Returned" class="form-control" autocomplete="off" style="width: 30%; display: none;" readonly>
         <span asp-validation-for="Returned" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-secondary my-2">Отредактировать</button>

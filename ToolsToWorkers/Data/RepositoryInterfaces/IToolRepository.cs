@@ -29,6 +29,10 @@ namespace ToolsToWorkers.Data.RepositoryInterfaces
 
         public bool ArticleTaken(string article);
 
+        public bool StorageTaken(int storage);
+
+        public bool WorkerIdTaken(int WorkerID);
+
         Task<IEnumerable<ToolsView>> GetSlice(int count, int elementsPerPage, IQueryable<ToolsView> users);
 
         Task<IQueryable<ToolsView>> SearchByNameQuery(string login, IQueryable<ToolsView> users);

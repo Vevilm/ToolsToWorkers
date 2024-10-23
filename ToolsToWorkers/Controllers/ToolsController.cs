@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ToolsToWorkers.Data;
 using ToolsToWorkers.Data.enums;
 using ToolsToWorkers.Data.RepositoryInterfaces;
 using ToolsToWorkers.Data.SearchData;
@@ -29,8 +30,16 @@ namespace ToolsToWorkers.Controllers
         {
             try
             {
-                if (!ModelState.IsValid || tool.StorageID <= 0 || !repository.ArticleTaken(tool.ArticleID))
+                if (!ModelState.IsValid || tool.StorageID <= 0 || !repository.ArticleTaken(tool.ArticleID) || !repository.StorageTaken(tool.StorageID))
                 {
+                    if (!repository.ArticleTaken(tool.ArticleID))
+                    {
+                        MessegaMarkers.InvalidArticle = true;
+                    }
+                    if (!repository.StorageTaken(tool.StorageID))
+                    {
+                        MessegaMarkers.InvalidStorage = true;
+                    }
                     return View(tool);
                 }
                 repository.Update(tool);
@@ -56,8 +65,16 @@ namespace ToolsToWorkers.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Tool tool)
         {
-            if (!ModelState.IsValid || tool.StorageID <= 0 || !repository.ArticleTaken(tool.ArticleID))
+            if (!ModelState.IsValid || tool.StorageID <= 0 || !repository.ArticleTaken(tool.ArticleID) || !repository.StorageTaken(tool.StorageID))
             {
+                if (!repository.ArticleTaken(tool.ArticleID))
+                {
+                    MessegaMarkers.InvalidArticle = true;
+                }
+                if (!repository.StorageTaken(tool.StorageID))
+                {
+                    MessegaMarkers.InvalidStorage = true;
+                }
                 return View(tool);
             }
             repository.Add(tool);
@@ -104,9 +121,14 @@ namespace ToolsToWorkers.Controllers
         [HttpPost]
         public async Task<IActionResult> ChooseWorker(ToolRequest toolRequest)
         {
-            if (toolRequest.WorkerID == 0)
+            if (toolRequest.WorkerID <= 0 || !repository.WorkerIdTaken(toolRequest.WorkerID))
+            {
+                if (!repository.WorkerIdTaken(toolRequest.WorkerID))
+                {
+                    MessegaMarkers.InvalidUser = true;
+                }
                 return View(toolRequest);
-
+            }
             toolRequest.ToolID = toolRequest.ID;
             toolRequest.ID = 0;
             toolRequest.Requested = DateTime.Now;
