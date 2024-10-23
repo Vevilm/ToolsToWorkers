@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vigdi\\Downloads\\ToolsToWorkers-master (2)\\ToolsToWorkers-master\\ToolsToWorkers\\ToolsToWorkers.csproj": {}
+    "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\ToolsToWorkers.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vigdi\\Downloads\\ToolsToWorkers-master (2)\\ToolsToWorkers-master\\ToolsToWorkers\\ToolsToWorkers.csproj": {
+    "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\ToolsToWorkers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vigdi\\Downloads\\ToolsToWorkers-master (2)\\ToolsToWorkers-master\\ToolsToWorkers\\ToolsToWorkers.csproj",
+        "projectUniqueName": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\ToolsToWorkers.csproj",
         "projectName": "ToolsToWorkers",
-        "projectPath": "C:\\Users\\vigdi\\Downloads\\ToolsToWorkers-master (2)\\ToolsToWorkers-master\\ToolsToWorkers\\ToolsToWorkers.csproj",
-        "packagesPath": "C:\\Users\\vigdi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vigdi\\Downloads\\ToolsToWorkers-master (2)\\ToolsToWorkers-master\\ToolsToWorkers\\obj\\",
+        "projectPath": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\ToolsToWorkers.csproj",
+        "packagesPath": "C:\\Users\\alexe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alexe\\Desktop\\ToolsToWorkers\\ToolsToWorkers\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vigdi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alexe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -84,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
